@@ -60,48 +60,48 @@ public class DecisionTreeRegressorModel {
 	    		.setLabelCol("Marks");
 	
 		DecisionTreeRegressionModel model = dt.fit(TrainDf);
-	    Dataset<Row> predictions = model.transform(TestDf);
-	    predictions.show();
+	    	Dataset<Row> predictions = model.transform(TestDf);
+	    	predictions.show();
 	    
 	    
 	  	//---------------------------Evaluating Predictions---------------------//
 	    
 	  	//---------------------------RMSE---------------------//
-	    RegressionEvaluator evaluator_rmse = new RegressionEvaluator()
+	    	RegressionEvaluator evaluator_rmse = new RegressionEvaluator()
 	    		.setLabelCol("Marks")
 	    		.setPredictionCol("prediction")
 	    		.setMetricName("rmse");
-	    Double rmse = evaluator_rmse.evaluate(predictions);
+	    	Double rmse = evaluator_rmse.evaluate(predictions);
 	    
 	    
 	  	//---------------------------MSE---------------------//
-	    RegressionEvaluator evaluator_mse = new RegressionEvaluator()
+	    	RegressionEvaluator evaluator_mse = new RegressionEvaluator()
 	    		.setLabelCol("Marks")
 	    		.setPredictionCol("prediction")
 	    		.setMetricName("mse");
-	    Double mse = evaluator_mse.evaluate(predictions);
+	    	Double mse = evaluator_mse.evaluate(predictions);
 	    
 	    
 	  	//---------------------------R2---------------------//
-	    RegressionEvaluator evaluator_r2 = new RegressionEvaluator()
+	    	RegressionEvaluator evaluator_r2 = new RegressionEvaluator()
 	    		.setLabelCol("Marks")
 	    		.setPredictionCol("prediction")
 	    		.setMetricName("r2");
-	    Double r2 = evaluator_r2.evaluate(predictions);
+	    	Double r2 = evaluator_r2.evaluate(predictions);
 	    
 	    
 	  	//---------------------------MAE---------------------//
-	    RegressionEvaluator evaluator_mae = new RegressionEvaluator()
+	    	RegressionEvaluator evaluator_mae = new RegressionEvaluator()
 	    		.setLabelCol("Marks")
 	    		.setPredictionCol("prediction")
 	    		.setMetricName("mae");
-	    Double mae = evaluator_mae.evaluate(predictions);
+	    	Double mae = evaluator_mae.evaluate(predictions);
 	    
 	    
-	    System.out.println("Root Mean Squared Error (RMSE) on test data = " + rmse);
-	    System.out.println("Mean Squared Error (MSE) on test data = " + mse);
-	    System.out.println("Root Squared (R2) on test data = " + r2);
-	    System.out.println("Mean Absolute Error (MAE) on test data = " + mae);
+	    	System.out.println("Root Mean Squared Error (RMSE) on test data = " + rmse);
+	    	System.out.println("Mean Squared Error (MSE) on test data = " + mse);
+	    	System.out.println("Root Squared (R2) on test data = " + r2);
+	    	System.out.println("Mean Absolute Error (MAE) on test data = " + mae);
 
 
 		spark.stop();
