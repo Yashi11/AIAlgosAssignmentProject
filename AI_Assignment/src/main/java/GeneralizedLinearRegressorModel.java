@@ -30,39 +30,39 @@ public class GeneralizedLinearRegressorModel {
 
 		Dataset<Row>describe = dataset.describe();
 		describe.show();
+		
+		
 		//---------------------------Splitting into train and test set---------------------//
-				Dataset<Row>[] BothTrainTest = dataset.randomSplit(new double[] {0.8d,0.2d},42);
-				Dataset<Row> TrainDf = BothTrainTest[0];
-				Dataset<Row> TestDf = BothTrainTest[1];		
+		Dataset<Row>[] BothTrainTest = dataset.randomSplit(new double[] {0.8d,0.2d},42);
+		Dataset<Row> TrainDf = BothTrainTest[0];
+		Dataset<Row> TestDf = BothTrainTest[1];		
 
+						
+		//---------------------------Assembling Features---------------------//
+		VectorAssembler assembler = new VectorAssembler()
+			.setInputCols(new String[]{"number_courses", "time_study"})
+			.setOutputCol("features");
+		TrainDf = assembler.transform(TrainDf);
+		TestDf = assembler.transform(TestDf);
+		TrainDf.show();
 				
-				
-				//---------------------------Assembling Features---------------------//
-				VectorAssembler assembler = new VectorAssembler()
-						.setInputCols(new String[]{"number_courses", "time_study"})
-						.setOutputCol("features");
-				TrainDf = assembler.transform(TrainDf);
-				TestDf = assembler.transform(TestDf);
-				
-				TrainDf.show();
-				
-			    GeneralizedLinearRegression glr = new GeneralizedLinearRegression()
-			    		.setFeaturesCol("features")
+		GeneralizedLinearRegression glr = new GeneralizedLinearRegression()
+			      .setFeaturesCol("features")
 			      .setFamily("gaussian")
 			      .setMaxIter(10)
 			      .setRegParam(0.3)
 			      .setLabelCol("Marks");
-//
-//			    // Fit the model
+
+			    // Fit the model
 			    GeneralizedLinearRegressionModel model = glr.fit(TrainDf);
 			    Dataset<Row> predictions = model.transform(TestDf);
-		    	predictions.show();
+		    		predictions.show();
 		    	
 			    // Print the coefficients and intercept for generalized linear regression model
 			    System.out.println("Coefficients: " + model.coefficients());
 			    System.out.println("Intercept: " + model.intercept());
-//
-//			    // Summarize the model over the training set and print out some metrics
+
+			    // Summarize the model over the training set and print out some metrics
 			    GeneralizedLinearRegressionTrainingSummary summary = model.summary();
 			    System.out.println("Coefficient Standard Errors: "
 			      + Arrays.toString(summary.coefficientStandardErrors()));
