@@ -54,3 +54,9 @@ Objective:
 <img width="484" alt="DatasetSummary" src="https://user-images.githubusercontent.com/73705143/206892829-92b366c6-4d41-4746-80e6-29bc6ff27f5a.png">
  <img width="344" alt="DatasetAfterFeatureAssembling" src="https://user-images.githubusercontent.com/73705143/206892839-a622e022-e31e-4fe0-bcd3-2631a99efee8.png"> 
 --->
+## Steps to run rhis project
+1. Set up spark on your device.
+2. Create a Maven Project on Eclipse or IntelliJ IDEA.
+3. Copy the java files from this project to your project.
+4. Give the right path of the dataset.
+<br/>
