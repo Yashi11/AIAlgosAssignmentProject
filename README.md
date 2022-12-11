@@ -43,10 +43,9 @@ Objective:
 ### Decision Tree Results
 <img width="474" alt="ErrorMetricsResult" src="https://user-images.githubusercontent.com/73705143/206892826-7ef6f8fc-7a33-46ef-88fe-a1a13cc091f9.png">
 
-### Generalized Linear Regression Predictions 
+### Generalized Linear Regression Results
 <img width="474" alt="ErrorMetricsResult" src="https://user-images.githubusercontent.com/73705143/206920407-3a78b692-176b-43e8-819d-baeed64181b6.png">
 
-### Generalized Linear Regression Results
 <img width="474" alt="ErrorMetricsResult" src="https://user-images.githubusercontent.com/73705143/206892827-f95f1cf3-90af-4f9d-b85f-b1e69bf49b03.png">
 <br>
 <img width="474" alt="ErrorMetricsResult" src="https://user-images.githubusercontent.com/73705143/206892830-7feae1ce-f3d9-4e03-ba81-b9aa3d0181e3.png">
