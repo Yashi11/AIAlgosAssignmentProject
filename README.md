@@ -1,4 +1,4 @@
-# AIAlgosAssignmentProject
+# Marks Prediction
 
 In this project, we aim to predict the marks of various students on th basis of their nuber of courses and total study hours. Same has been iplemented using SparkML algorithm:
 DecisionTreeRegressionModel and GeneralizedLinearRegressionModel
